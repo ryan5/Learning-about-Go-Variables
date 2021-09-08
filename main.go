@@ -9,17 +9,19 @@ import (
 
 const prompt = "and press ENTER when ready."
 
-var randomNumber = rand.Intn(8) + 2
-
 func main() {
-	var firstNumber = randomNumber
-	var secondNumber = randomNumber
-	var subtraction = randomNumber
-	var answer int
+	var firstNumber = rand.Intn(8) + 2
+	var secondNumber = rand.Intn(8) + 2
+	var subtraction = rand.Intn(8) + 2
+	var answer = firstNumber*secondNumber - subtraction
 
+	game(firstNumber, secondNumber, subtraction, answer)
+
+}
+
+func game(firstNumber, secondNumber, subtraction, answer int) {
 	reader := bufio.NewReader(os.Stdin)
 
-	// welcome the user into the game and instructions
 	fmt.Println("Guess the Number game")
 	fmt.Println("---------------------")
 	fmt.Println("")
@@ -27,7 +29,6 @@ func main() {
 	fmt.Println("Think of a number between 1 and 10", prompt)
 	reader.ReadString('\n')
 
-	// take the use through the games
 	fmt.Println("Multiply your number by", firstNumber, prompt)
 	reader.ReadString('\n')
 
@@ -40,7 +41,5 @@ func main() {
 	fmt.Println("Now subtract", subtraction, prompt)
 	reader.ReadString('\n')
 
-	//give them the answer
-	answer = firstNumber*secondNumber - subtraction
 	fmt.Println("The answer is", answer)
 }
