@@ -1,8 +1,8 @@
-package main
+package two
 
 import "fmt"
 
-func main() {
+func two() {
 	respond := 5
 	fmt.Println("Here is an amount", respond)
 
